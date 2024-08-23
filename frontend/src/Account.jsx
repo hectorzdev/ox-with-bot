@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FBlogo from './imgs/fb-logo.png';
+import deleteIcon from './imgs/delete.png';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
@@ -72,6 +73,7 @@ export default function Account({ point, streak, updatePointsAndStreak }) {
                     }}>
                         Logout
                     </button>
+                    <Link to="/delete-account" className='delete-account-btn'><img src={deleteIcon} alt="" /> Account</Link>
                 </div>
                 <div className="state-info">
                     <span>POINT : {point}</span>

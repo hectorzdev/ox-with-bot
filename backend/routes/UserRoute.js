@@ -3,10 +3,11 @@ const passport = require('passport');
 const router = express.Router()
 require('../libs/passport');
 
-const { saveResult , user } = require('../controllers/UserController');
+const { saveResult , user , deleteAccount } = require('../controllers/UserController');
 
 router.post('/save-result' , saveResult)
 router.post('/user' , user)
+router.post('/auth/delete', deleteAccount);
 router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
 router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),

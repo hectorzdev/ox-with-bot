@@ -1,14 +1,20 @@
 const dbConnect = require('../libs/dbConnect');
 const User = require('../shema/User');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 exports.saveResult = async (req, res) => {
     try {
-
         await dbConnect();
-        const result = req.body.result;
-        const decoded = jwt.verify(req.body.token, process.env.JWT_SECRET);
+        
+        const { result, token } = req.body;
+        if (!result || !token) {
+            return res.status(400).json({ msg: 'Missing required fields' });
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded.id;
+
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({ msg: 'User not found' });
@@ -37,7 +43,8 @@ exports.saveResult = async (req, res) => {
     }
 };
 
-exports.user = async (req, res) => {
+
+exports.user = async (req , res) => {
     try {
 
         await dbConnect();
@@ -49,6 +56,26 @@ exports.user = async (req, res) => {
         }
 
         res.status(200).json(user);
+        
+    } catch (error) {
+        res.status(500).json({ msg: 'An unexpected error occurred', error: error.message });
+    }
+}
+
+exports.deleteAccount = async (req, res) => {
+    try {
+
+        await dbConnect();
+        const decoded = jwt.verify(req.body.token, process.env.JWT_SECRET);
+        const userId = decoded.id;
+
+        const deletedUser = await User.findByIdAndDelete(userId);
+        // ตรวจสอบว่าผู้ใช้ถูกลบหรือไม่
+        if (!deletedUser) {
+            return res.status(404).json({ msg: 'User not found or could not be deleted' });
+        }
+
+        res.status(200).json({ msg: 'Account deleted successfully' });
         
     } catch (error) {
         res.status(500).json({ msg: 'An unexpected error occurred', error: error.message });

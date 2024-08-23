@@ -24,6 +24,15 @@ body{
     margin-top: 2.5rem;
 }
 
+.delete-account-wrapper{
+    padding: 15px;
+    width: 100%;
+    background: #01262a;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
 .account-wrapper{
     padding: 15px;
     width: 100%;
@@ -37,11 +46,13 @@ body{
 
 .account-wrapper span{
     color: #fff;
+    font-size: 14px;
 }
 
 .account-info{
     display: flex;
     align-items: center;
+    gap: 7px;
 }
 
 .state-info{
@@ -50,11 +61,36 @@ body{
     font-size: 14px;
     margin-top: 1.5rem;
 }
+.back-btn{
+    background-color: #ffbb4e;
+    color: #fff;
+    padding: 7px 15px;
+    border: 0;
+    border-radius: 7px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 600;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    font-size: 14px;
+    text-decoration: none !important;
+    display: flex;
+    margin-bottom: 0.7rem;
+    width: fit-content;
+}
+
+.text-white{
+    color: #fff;
+}
+
+.text-center{
+    text-align: center;
+}
 
 .logout-btn{
     background-color: #ffffff;
     color: #0557ef;
-    padding: 10px 15px;
+    padding: 7px 15px;
     border: 0;
     border-radius: 7px;
     font-family: "Noto Sans Thai", sans-serif;
@@ -63,13 +99,13 @@ body{
     align-items: center;
     gap: 10px;
     margin-left: auto;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .facebook-btn{
     background-color: #ffffff;
     color: #0557ef;
-    padding: 10px 15px;
+    padding: 7px 15px;
     border: 0;
     border-radius: 7px;
     font-family: "Noto Sans Thai", sans-serif;
@@ -78,12 +114,32 @@ body{
     align-items: center;
     gap: 10px;
     margin-left: auto;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .facebook-btn img{
     width: 25px;
 }
+
+.delete-account-btn{
+    background-color: #ffffff;
+    color: #0557ef;
+    padding: 7px 15px;
+    border: 0;
+    border-radius: 7px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    text-decoration: none !important;
+}
+
+.delete-account-btn img{
+    width: 18px;
+}
+
 
 .web-title{
     text-align: center;
@@ -166,43 +222,28 @@ body{
     font-weight: 800;
 }
 
-/* HTML: <div class="loader"></div> */
-.processing {
-    position: absolute;
-    top: 44%;
-    left: 44%;
-    transform: translate(-50% , -50%);
-    width: 50px;
-    z-index: 2;
-    aspect-ratio: 1;
-    color: #5bfff6;
-    border: 7px solid;
-    box-sizing: border-box;
-    border-radius: 50%;
-    background: 
-      radial-gradient(circle 3px, #fff 95%,#0000),
-      linear-gradient(180deg,#fff 50%,#0000 0) center/3px 70%,
-      linear-gradient(90deg ,#fff 50%,#0000 0) center/50% 3px;
-    background-repeat: no-repeat;
-    animation: l9 1s infinite;
-  }
-  .processing:before,
-  .processing:after {
-    content: "";
-    position: absolute;
-    border-radius: 20px 20px 0 0;
-    inset: -20px calc(50% - 10px);
-    transform: rotate(40deg);
-    background: 
-        linear-gradient(currentColor 0 0) top   /100% 10px,
-        linear-gradient(currentColor 0 0) bottom/3px  10px;
-    background-repeat: no-repeat;
-  }
-  .processing:after {
-    transform: rotate(-40deg);
-  }
-  @keyframes l9 {
-    0%,70%,100% {transform: translateY(0)    rotate(0)}
-    75%,85%,95% {transform: translateY(-3px) rotate(10deg)}
-    80%,90%     {transform: translateY(-3px) rotate(-10deg)}
-  }
+.delete-account-wrapper p{
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+.delete-account-wrapper ul{
+    padding-left: 25px;
+}
+
+.confirm-delete-account-btn{
+    width: 100%;
+    padding: 7px 0;
+    background-color: #dc1608;
+    color: #fff;
+    font-size: 14px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 700;
+    border: 0;
+    outline: none !important;
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+}
