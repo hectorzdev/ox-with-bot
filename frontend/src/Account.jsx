@@ -34,7 +34,6 @@ export default function Account() {
           const expiry = decodedToken.exp * 1000; // เวลาหมดอายุของ token (ใน milliseconds)
           const now = Date.now();
             
-          console.log(decodedToken)
           if (now < expiry) {
             setIsLoggedIn(true);
             setFullname(decodedToken.fullname || ''); // สมมุติว่ามี username ใน token

@@ -94,7 +94,7 @@ body{
 .ox-wrapper{
     display: flex;
     gap: 10px;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
     justify-content: space-between;
 }
@@ -122,3 +122,87 @@ body{
     left: 50%;
     transform: translate(-50% , -50%);
 }
+
+.ox-selector.winning {
+    background-color: #55b741;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { background-color: #55b741; }
+    50% { background-color: #a0eb92; }
+}
+
+
+.ox-main{
+    position: relative;
+}
+
+.d-none{
+    display: none !important;
+}
+
+.winner{
+    text-align: center;
+    color: #ffbb4e;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    height: 29px;
+    font-family: "Noto Sans Thai", sans-serif;
+}
+
+.reset-game{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #dc4f08;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    border: 0;
+    border-radius: 7px;
+    outline: none !important;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 800;
+}
+
+/* HTML: <div class="loader"></div> */
+.processing {
+    position: absolute;
+    top: 44%;
+    left: 44%;
+    transform: translate(-50% , -50%);
+    width: 50px;
+    z-index: 2;
+    aspect-ratio: 1;
+    color: #5bfff6;
+    border: 7px solid;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: 
+      radial-gradient(circle 3px, #fff 95%,#0000),
+      linear-gradient(180deg,#fff 50%,#0000 0) center/3px 70%,
+      linear-gradient(90deg ,#fff 50%,#0000 0) center/50% 3px;
+    background-repeat: no-repeat;
+    animation: l9 1s infinite;
+  }
+  .processing:before,
+  .processing:after {
+    content: "";
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+    inset: -20px calc(50% - 10px);
+    transform: rotate(40deg);
+    background: 
+        linear-gradient(currentColor 0 0) top   /100% 10px,
+        linear-gradient(currentColor 0 0) bottom/3px  10px;
+    background-repeat: no-repeat;
+  }
+  .processing:after {
+    transform: rotate(-40deg);
+  }
+  @keyframes l9 {
+    0%,70%,100% {transform: translateY(0)    rotate(0)}
+    75%,85%,95% {transform: translateY(-3px) rotate(10deg)}
+    80%,90%     {transform: translateY(-3px) rotate(-10deg)}
+  }
