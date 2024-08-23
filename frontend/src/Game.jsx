@@ -29,53 +29,6 @@ export default function Game() {
       }
     };
 
-    const calculateBestMove = (board, isO) => {
-      const emptyIndices = board.map((value, index) => value === null ? index : null).filter(index => index !== null);
-      
-      const minimax = (board, depth, isMaximizing) => {
-        const winner = checkWinner(board);
-        if (winner === oIcon) return 10;
-        if (winner === xIcon) return -10;
-        if (emptyIndices.length === 0) return 0;
-    
-        let bestScore;
-        if (isMaximizing) {
-          bestScore = -Infinity;
-          for (let i = 0; i < emptyIndices.length; i++) {
-            const index = emptyIndices[i];
-            board[index] = isO ? oIcon : xIcon;
-            const score = minimax(board, depth + 1, false);
-            board[index] = null;
-            bestScore = Math.max(score, bestScore);
-          }
-        } else {
-          bestScore = Infinity;
-          for (let i = 0; i < emptyIndices.length; i++) {
-            const index = emptyIndices[i];
-            board[index] = isO ? xIcon : oIcon;
-            const score = minimax(board, depth + 1, true);
-            board[index] = null;
-            bestScore = Math.min(score, bestScore);
-          }
-        }
-        return bestScore;
-      };
-    
-      let bestMove;
-      let bestValue = isO ? -Infinity : Infinity;
-      for (let i = 0; i < emptyIndices.length; i++) {
-        const index = emptyIndices[i];
-        board[index] = isO ? oIcon : xIcon;
-        const moveValue = minimax(board, 0, !isO);
-        board[index] = null;
-        if ((isO && moveValue > bestValue) || (!isO && moveValue < bestValue)) {
-          bestValue = moveValue;
-          bestMove = index;
-        }
-      }
-      return bestMove;
-    };
-    
     useEffect(() => {
       if (!isO) { 
         botMove();
