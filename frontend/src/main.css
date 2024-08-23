@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: rgb(1,24,27);
+    background: -moz-linear-gradient(343deg, rgba(1,24,27,1) 0%, rgba(8,60,66,1) 100%);
+    background: -webkit-linear-gradient(343deg, rgba(1,24,27,1) 0%, rgba(8,60,66,1) 100%);
+    background: linear-gradient(343deg, rgba(1,24,27,1) 0%, rgba(8,60,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#01181b",endColorstr="#083c42",GradientType=1);
+    font-family: "Noto Sans Thai", sans-serif;
+    height: 100vh;
+}
+
+.container{
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-top: 2.5rem;
+}
+
+.account-wrapper{
+    padding: 15px;
+    width: 100%;
+    background: #01262a;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    gap: 10px;
+}
+
+.account-wrapper span{
+    color: #fff;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+}
+
+.state-info{
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    margin-top: 1.5rem;
+}
+
+.logout-btn{
+    background-color: #ffffff;
+    color: #0557ef;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 7px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+.facebook-btn{
+    background-color: #ffffff;
+    color: #0557ef;
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 7px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    font-size: 15px;
+}
+
+.facebook-btn img{
+    width: 25px;
+}
+
+.web-title{
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2.5rem;
+}
+
+.ox-wrapper{
+    display: flex;
+    gap: 10px;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ox-wrapper .ox-selector{
+    width: 31.1%;
+    height: 123px;
+    background-color: #055c65;
+    border-radius: 5px;
+    border: 0;
+    outline: none !important;
+    transition: 0.15s;
+    position: relative;
+}
+
+.ox-wrapper .ox-selector:hover{
+   transform: scale(1.03);
+   cursor: pointer;
+}
+
+.ox-wrapper .ox-selector img{
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
