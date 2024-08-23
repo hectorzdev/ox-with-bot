@@ -4,11 +4,12 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('../shema/User');
 const jwt = require('jsonwebtoken');
 const dbConnect = require('../libs/dbConnect');
+require('dotenv').config();
 
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
   clientSecret: process.env.FACEBOOK_APP_SECRET,
-  callbackURL: "http://localhost:3333/api/auth/facebook/callback",
+  callbackURL: process.env.FACEBOOK_CALLBACK_BACKEND,
   profileFields: ['id', 'displayName', 'emails']
 },
 async (accessToken, refreshToken, profile, done) => {

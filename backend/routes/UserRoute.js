@@ -2,6 +2,7 @@ const express = require('express')
 const passport = require('passport');
 const router = express.Router()
 require('../libs/passport');
+require('dotenv').config();
 
 const { saveResult , user , deleteAccount } = require('../controllers/UserController');
 
@@ -13,7 +14,8 @@ router.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   (req, res) => {
     const token = req.user.token;       
-    res.redirect(`http://localhost:3000?token=${token}`);
+    const FACEBOOK_CALLBACK_FRONTEND = process.env.FACEBOOK_CALLBACK_FRONTEND
+    res.redirect(`${FACEBOOK_CALLBACK_FRONTEND}?token=${token}`);
 });
 
 module.exports = router
