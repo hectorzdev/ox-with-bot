@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FBlogo from './imgs/fb-logo.png';
 import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
+const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
 
-
-export default function Account() {
+export default function Account({ point, streak, updatePointsAndStreak }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [fullname, setFullname] = useState('');
-    const [point, setPoint] = useState(0);
-    const [win, setWin] = useState(0);
-    const [streak, setStreak] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,15 +26,26 @@ export default function Account() {
         }
     }, [navigate]);
 
-    const checkToken = (token) => {
+    const checkToken = async (token) => {
         try {
-          const decodedToken = jwtDecode(token); // ถอดรหัส JWT
-          const expiry = decodedToken.exp * 1000; // เวลาหมดอายุของ token (ใน milliseconds)
+          const decodedToken = jwtDecode(token); 
+          const expiry = decodedToken.exp * 1000; 
           const now = Date.now();
             
           if (now < expiry) {
             setIsLoggedIn(true);
-            setFullname(decodedToken.fullname || ''); // สมมุติว่ามี username ใน token
+            setFullname(decodedToken.fullname || ''); 
+
+            await axios.post(`${apiEndpoint}/user`, {
+              token: token
+            })
+            .then(response => {
+              updatePointsAndStreak(response.data.point, response.data.consecutiveWins);
+            })
+            .catch(error => {
+                console.error('Error saving result:', error);
+            });
+            
           } else {
             localStorage.removeItem('ox_token');
             setIsLoggedIn(false);
@@ -66,7 +75,6 @@ export default function Account() {
                 </div>
                 <div className="state-info">
                     <span>POINT : {point}</span>
-                    <span>WIN : {win}</span>
                     <span>STREAK : {streak}</span>
                 </div>
             </div> 

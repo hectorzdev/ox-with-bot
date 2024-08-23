@@ -7,8 +7,10 @@ const userSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   lastLogin: { type: Date },
   point: { type: Number, default: 0 },
-  win: { type: Number, default: 0 },
-  streak: { type: Number, default: 0 } 
+  consecutiveWins: {
+    type: Number,
+    default: 0
+  }
 });
 
 const User = mongoose.model('users', userSchema);
