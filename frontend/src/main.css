@@ -247,3 +247,19 @@ body{
     margin-top: 1rem;
     cursor: pointer;
 }
+
+.policy-page{
+    color: #fff;
+}
+
+.policy-page .container{
+    max-width: 1120px;
+}
+
+.privacy-policy-link{
+    color: #fff;
+    display: flex;
+    margin-left: auto;
+    margin-top: 2rem;
+    width: fit-content;
+}
