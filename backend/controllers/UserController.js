@@ -62,6 +62,36 @@ exports.user = async (req , res) => {
     }
 }
 
+exports.users = async (req, res) => {
+    try {
+        await dbConnect();
+        const decoded = jwt.verify(req.body.token, process.env.JWT_SECRET);
+
+        if (!decoded) {
+            throw new Error('Token verification failed');
+        }
+
+        const { page = 1, limit = 10 } = req.query; // รับค่า page และ limit จาก query string
+
+        const users = await User.find()
+            .sort({ point: -1 })
+            .skip((page - 1) * limit)
+            .limit(Number(limit));
+
+        const total = await User.countDocuments();
+
+        res.status(200).json({
+            users,
+            totalPages: Math.ceil(total / limit),
+            currentPage: Number(page)
+        });
+
+    } catch (error) {
+        res.status(500).json({ msg: 'An unexpected error occurred', error: error.message });
+    }
+}
+
+
 exports.deleteAccount = async (req, res) => {
     try {
 

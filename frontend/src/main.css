@@ -50,9 +50,9 @@ body{
 }
 
 .account-info{
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    /* display: flex;
+    align-items: center; */
+    text-align: center;
 }
 
 .state-info{
@@ -98,7 +98,6 @@ body{
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-left: auto;
     font-size: 14px;
 }
 
@@ -262,4 +261,85 @@ body{
     margin-left: auto;
     margin-top: 2rem;
     width: fit-content;
+}
+
+.players-wrapper{
+    padding: 15px;
+    width: 100%;
+    background: #01262a;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.players-wrapper table{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.players-wrapper table thead{
+    font-size: 14px;
+}
+
+.players-wrapper table thead th{
+    padding: 5px 5px;
+}
+
+.players-wrapper table tbody td{
+    padding: 5px 5px;
+    text-align: center;
+    background-color: #01262a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.pagination button{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+.pagination button.active{
+    background-color: #dc4f08;
+    color: #fff;
+}
+
+.account-btns{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.account-btn{
+    background-color: #ffffff;
+    color: #0557ef;
+    padding: 7px 15px;
+    border: 0;
+    border-radius: 7px;
+    font-family: "Noto Sans Thai", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    text-decoration: none !important;
+}
+
+.account-btn img{
+    width: 20px;
 }

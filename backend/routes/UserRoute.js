@@ -4,10 +4,11 @@ const router = express.Router()
 require('../libs/passport');
 require('dotenv').config();
 
-const { saveResult , user , deleteAccount } = require('../controllers/UserController');
+const { saveResult , user , users , deleteAccount } = require('../controllers/UserController');
 
 router.post('/save-result' , saveResult)
 router.post('/user' , user)
+router.post('/users' , users)
 router.post('/auth/delete', deleteAccount);
 router.get('/auth/google', passport.authenticate('google', { scope: ['email'] }));
 router.get('/auth/google/callback',
