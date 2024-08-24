@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FBlogo from './imgs/fb-logo.png';
+import GoogleLogo from './imgs/google-logo.webp';
 import deleteIcon from './imgs/delete.png';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
@@ -82,7 +83,7 @@ export default function Account({ point, streak, updatePointsAndStreak }) {
             </div> 
       ) : (
         <button type="button" className='facebook-btn' onClick={handleLogin}>
-          <img src={FBlogo} alt="Facebook Logo" />
+          <img src={GoogleLogo} alt="Facebook Logo" />
           LOGIN
         </button>
       )}
