@@ -58,7 +58,7 @@ export default function Account({ point, streak, updatePointsAndStreak }) {
     };
 
   const handleLogin = () => {
-    window.location.href = 'http://localhost:3333/api/auth/facebook';
+    window.location.href = `${apiEndpoint}/api/auth/facebook`;
   };
 
   return (
