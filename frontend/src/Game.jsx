@@ -59,7 +59,7 @@ export default function Game({ onGameEnd }) {
                 if(winner == oIcon){
                     result = "win"
                 }else{
-                    result = "lost"
+                    result = "loss"
                 }
 
             }
