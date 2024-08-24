@@ -58,7 +58,7 @@ export default function Account({ point, streak, updatePointsAndStreak }) {
     };
 
   const handleLogin = () => {
-    window.location.href = `${apiEndpoint}/auth/facebook`;
+    window.location.href = `${apiEndpoint}/auth/google`;
   };
 
   return (

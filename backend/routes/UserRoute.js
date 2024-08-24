@@ -9,13 +9,13 @@ const { saveResult , user , deleteAccount } = require('../controllers/UserContro
 router.post('/save-result' , saveResult)
 router.post('/user' , user)
 router.post('/auth/delete', deleteAccount);
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email'] }));
-router.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
+router.get('/auth/google', passport.authenticate('google', { scope: ['email'] }));
+router.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
     const token = req.user.token;       
-    const FACEBOOK_CALLBACK_FRONTEND = process.env.FACEBOOK_CALLBACK_FRONTEND
-    res.redirect(`${FACEBOOK_CALLBACK_FRONTEND}?token=${token}`);
+    const GOOGLE_CALLBACK_FRONTEND = process.env.GOOGLE_CALLBACK_FRONTEND
+    res.redirect(`${GOOGLE_CALLBACK_FRONTEND}?token=${token}`);
 });
 
 module.exports = router

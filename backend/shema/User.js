@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  facebookId: String,
-  fullname: String,
+  googleId: String,
   email: String,
   createdAt: { type: Date, default: Date.now },
   lastLogin: { type: Date },
